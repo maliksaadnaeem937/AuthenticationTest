@@ -5,6 +5,11 @@ const GoogleAuthentication = require("../MiddleWares/registerWithPassport.js");
 
 const router = express.Router();
 
+router.use((req,res,next)=>{
+  console.log("inside google auth");
+  next();
+})
+
 router.get(
   "/google",
   passport.authenticate("google", { scope: ["profile", "email"] })

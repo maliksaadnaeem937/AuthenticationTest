@@ -31,7 +31,7 @@ const authenticateWithGoogle = async (req, res, next) => {
         message: "Please login with email  and password!",
       });
     } else if (verifiedUser && verifiedUser.authProvider === "google") {
-      req.verifiedUser = req.verifiedUser;
+      req.verifiedUser = verifiedUser;
       console.log("user is veirified with google provider");
       return next();
     }
