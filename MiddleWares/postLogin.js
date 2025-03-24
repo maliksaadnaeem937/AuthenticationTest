@@ -1,6 +1,5 @@
 const MyError = require("./Error.js");
 const { VerifiedUserModel } = require("../Models/user.js");
-const bcrypt=require("bcryptjs");
 const jwt=require("jsonwebtoken");
 
 const bcrypt = require("bcryptjs");
