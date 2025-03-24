@@ -1,4 +1,4 @@
-const MyError = require("./Error.js");
+const MyError = require("../MiddleWares/Error.js");
 const User = require("../Classes/user.js");
 const { sendOTPMail } = require("../Helpers/AuthHelper.js");
 

@@ -1,6 +1,6 @@
 // const generateTokenResponse = require("../MiddleWares/generateTokenResponse.js");
 
-const postRegister = require("../MiddleWares/postRegister.js");
+const postRegister = require("./postRegister.js");
 const sendOTP = require("./sendOTP.js");
 const generateTokenResponse = require("./generateTokenResponse.js");
 const ifLoggedRevokeAccess = require("./ifLoggedRevoke.js");
