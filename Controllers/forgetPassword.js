@@ -1,4 +1,4 @@
-const AuthHelper=require("../Helpers/AuthHelper.js");
+const { sendForgetPasswordMail } = require("../Helpers/AuthHelper.js");
 const { VerifiedUserModel } = require("../Models/user.js");
 const MyError = require("../MiddleWares/Error.js");
 
@@ -24,7 +24,7 @@ const forgetPassword = async (req, res, next) => {
       );
     }
 
-    const token = await AuthHelper.sendForgetPasswordMail(email);
+    const token = await sendForgetPasswordMail(email);
 
     await VerifiedUserModel.findOneAndUpdate(
       { email },

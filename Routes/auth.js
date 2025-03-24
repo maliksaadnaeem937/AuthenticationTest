@@ -1,6 +1,10 @@
 const express = require("express");
 
-const AuthMiddleware = require("../MiddleWares/AuthMiddleWares.js");
+const {
+  isAuthenticated,
+  verifyOtp,
+  loginUser,
+} = require("../MiddleWares/AuthMiddleWares.js");
 
 const AuthController = require("../Controllers/AuthController.js");
 
@@ -11,30 +15,22 @@ router.post("/register", AuthController.registerUser);
 
 router.post(
   "/login",
-  AuthMiddleware.loginUser,
+  loginUser,
   AuthController.createAccessRefTokenAndSendResponse
 );
-router.post(
-  "/logout",
-  AuthMiddleware.isAuthenticated,
-  AuthController.logoutUser
-);
+router.post("/logout", isAuthenticated, AuthController.logoutUser);
 
 // otp routes
 router.post(
   "/verify-otp",
-  AuthMiddleware.verifyOtp,
+  verifyOtp,
   AuthController.createAccessRefTokenAndSendResponse
 );
 
 router.post("/resend-otp", AuthController.sendRegistrationOTP);
 
 // forget password routes
-router.post(
-  "/forget-password",
-  AuthMiddleware.isAuthenticated,
-  AuthController.forgetPassword
-);
+router.post("/forget-password", isAuthenticated, AuthController.forgetPassword);
 
 router.post("/reset-password/:token", AuthController.resetForgetPassword);
 
@@ -45,15 +41,7 @@ router.post(
 
 //  get requests
 
-router.get(
-  "/login",
-  AuthMiddleware.isAuthenticated,
-  AuthController.ifLoggedRevokeAcccess
-);
-router.get(
-  "/register",
-  AuthMiddleware.isAuthenticated,
-  AuthController.ifLoggedRevokeAcccess
-);
+router.get("/login", isAuthenticated, AuthController.ifLoggedRevokeAccess);
+router.get("/register", isAuthenticated, AuthController.ifLoggedRevokeAccess);
 
 module.exports = router;

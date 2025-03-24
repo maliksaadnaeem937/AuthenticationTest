@@ -1,7 +1,8 @@
-
 const MyError = require("../MiddleWares/Error.js");
-const AuthHelper=require("../Helpers/AuthHelper.js");
-
+const {
+  generateAccessToken,
+  generateRefreshToken,
+} = require("../Helpers/AuthHelper.js");
 
 const generateTokenResponse = async (req, res, next) => {
   try {
@@ -9,13 +10,13 @@ const generateTokenResponse = async (req, res, next) => {
     if (!verifiedUser) {
       return next();
     }
-    const accessToken = AuthHelper.generateAccessToken({
+    const accessToken = generateAccessToken({
       id: verifiedUser.id,
       email: verifiedUser.email,
       role: verifiedUser.role,
     });
 
-    const refreshToken = AuthHelper.generateRefreshToken({
+    const refreshToken = generateRefreshToken({
       id: verifiedUser.id,
       email: verifiedUser.email,
       role: verifiedUser.role,
@@ -49,4 +50,4 @@ const generateTokenResponse = async (req, res, next) => {
   }
 };
 
-module.exports =  generateTokenResponse ;
+module.exports = generateTokenResponse;

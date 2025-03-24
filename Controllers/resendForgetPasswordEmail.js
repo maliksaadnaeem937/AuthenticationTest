@@ -1,7 +1,7 @@
 const MyError = require("../MiddleWares/Error.js");
 const jwt = require("jsonwebtoken");
 const { VerifiedUserModel } = require("../Models/user.js");
-const AuthHelper = require("../Helpers/AuthHelper.js");
+const { sendForgetPasswordMail } = require("../Helpers/AuthHelper.js");
 
 const resendForgetPasswordEmail = async (req, res) => {
   try {
@@ -25,7 +25,7 @@ const resendForgetPasswordEmail = async (req, res) => {
         });
       }
     } catch (e) {
-      const newToken = await AuthHelper.sendForgetPasswordMail(user.email);
+      const newToken = await sendForgetPasswordMail(user.email);
 
       await VerifiedUserModel.findOneAndUpdate(
         { email: user.email },

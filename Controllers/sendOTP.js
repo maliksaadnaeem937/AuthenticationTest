@@ -1,7 +1,6 @@
-
 const { UserModel } = require("../Models/user.js");
 const MyError = require("../MiddleWares/Error.js");
-const AuthHelper=require("../Helpers/AuthHelper.js");
+const { sendOTPMail } = require("../Helpers/AuthHelper.js");
 const sendOTP = async (req, res) => {
   try {
     const { email } = req.body;
@@ -18,7 +17,7 @@ const sendOTP = async (req, res) => {
       });
     }
 
-    const otp = await AuthHelper.sendOTPMail(email);
+    const otp = await sendOTPMail(email);
 
     const updated = await UserModel.findOneAndUpdate(
       { email },

@@ -1,10 +1,8 @@
 // const generateTokenResponse = require("../MiddleWares/generateTokenResponse.js");
 
-
-
 const postRegister = require("../MiddleWares/postRegister.js");
 const sendOTP = require("./sendOTP.js");
-const generateTokenResponse  = require("./generateTokenResponse.js");
+const generateTokenResponse = require("./generateTokenResponse.js");
 const ifLoggedRevokeAccess = require("./ifLoggedRevoke.js");
 const forgetPassword = require("./forgetPassword.js");
 const resetForgetPassword = require("./resetForgetPassword.js");
@@ -19,7 +17,7 @@ class AuthController {
   static resetForgetPassword = resetForgetPassword;
   static resendForgetPasswordEmail = resendForgetPasswordEmail;
   static registerUser = postRegister;
-  static ifLoggedRevokeAcccess = ifLoggedRevokeAccess;
+  static ifLoggedRevokeAccess = ifLoggedRevokeAccess;
 }
 
 module.exports = AuthController;
