@@ -1,4 +1,4 @@
-const MyError = require("./Error.js");
+const MyError = require("../MiddleWares/Error.js");
 
 const logoutUser = (req, res, next) => {
   try {

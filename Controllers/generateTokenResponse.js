@@ -1,5 +1,5 @@
 
-const MyError = require("./Error.js");
+const MyError = require("../MiddleWares/Error.js");
 const AuthHelper=require("../Helpers/AuthHelper.js");
 
 

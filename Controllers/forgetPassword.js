@@ -1,6 +1,6 @@
 const AuthHelper=require("../Helpers/AuthHelper.js");
 const { VerifiedUserModel } = require("../Models/user.js");
-const MyError = require("./Error.js");
+const MyError = require("../MiddleWares/Error.js");
 
 const forgetPassword = async (req, res, next) => {
   try {
