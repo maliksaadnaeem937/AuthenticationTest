@@ -19,7 +19,7 @@ const postLogin = async (req, res, next) => {
       req.verifiedUser = user;
       return next();
     } else {
-      throw MyError(500, "Unknown Error");
+      throw new MyError(400, "Invalid Credentials!");
     }
   } catch (e) {
     return MyError.errorMiddleWare(e, res);
