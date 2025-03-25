@@ -1,4 +1,15 @@
-require("module-alias/register");
+const path = require("path");
+const moduleAlias = require("module-alias");
+
+// Dynamically resolve paths for Vercel
+moduleAlias.addAliases({
+    "@middlewares": path.resolve(__dirname, "MiddleWares"),
+    "@helpers": path.resolve(__dirname, "Helpers"),
+    "@controllers": path.resolve(__dirname, "Controllers"),
+    "@models": path.resolve(__dirname, "Models"),
+    "@classes": path.resolve(__dirname, "Classes"),
+    "@routes": path.resolve(__dirname, "Routes"),
+});
 const express = require("express");
 require("dotenv").config();
 require("./DBConnection/connection.js");
