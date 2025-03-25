@@ -1,6 +1,6 @@
-const MyError = require("../MiddleWares/Error.js");
-const User = require("../Classes/user.js");
-const { sendOTPMail } = require("../Helpers/AuthHelper.js");
+const MyError = require("@middlewares/Error.js");
+const User = require("@classes/user.js");
+const { sendOTPMail } = require("@helpers/AuthHelper/AuthHelper.js");
 
 const postRegister = async (req, res, next) => {
   try {

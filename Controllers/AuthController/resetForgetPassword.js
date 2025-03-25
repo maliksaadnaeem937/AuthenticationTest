@@ -1,9 +1,9 @@
-const MyError = require("../MiddleWares/Error.js");
-const { VerifiedUserModel } = require("../Models/user.js");
+const MyError = require("@middlewares/Error.js");
+const { VerifiedUserModel } = require("@models/user.js");
 const bcrypt=require("bcryptjs");
 const jwt=require("jsonwebtoken");
 const validate = require("validate.js");
-const validationRules = require("../Helpers/constraints.js");
+const validationRules = require("@helpers/AuthHelper/constraints.js");
 
 const resetForgetPassword = async (req, res, next) => {
     try {

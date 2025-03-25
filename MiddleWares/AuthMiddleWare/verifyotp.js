@@ -1,5 +1,5 @@
-const MyError = require("./Error.js");
-const { UserModel, VerifiedUserModel } = require("../Models/user.js");
+const MyError = require("../Error.js");
+const { UserModel, VerifiedUserModel } = require("@models/user.js");
 
 const verifyOtp = async (req, res, next) => {
   try {

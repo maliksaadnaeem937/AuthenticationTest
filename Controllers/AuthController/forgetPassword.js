@@ -1,6 +1,6 @@
-const { sendForgetPasswordMail } = require("../Helpers/AuthHelper.js");
-const { VerifiedUserModel } = require("../Models/user.js");
-const MyError = require("../MiddleWares/Error.js");
+const { sendForgetPasswordMail } = require("@helpers/AuthHelper/AuthHelper.js");
+const { VerifiedUserModel } = require("@models/user.js");
+const MyError = require("@middlewares/Error.js");
 
 const forgetPassword = async (req, res, next) => {
   try {

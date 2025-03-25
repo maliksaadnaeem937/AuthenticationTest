@@ -1,10 +1,12 @@
-const createSaveVerifiedUser = require("../Helpers/createSaveUser.js");
-const { VerifiedUserModel, UserModel } = require("../Models/user.js");
-const MyError = require("./Error.js");
+const createSaveVerifiedUser = require("@helpers//AuthHelper/createSaveUser.js");
+const { VerifiedUserModel, UserModel } = require("@models/user.js");
+const MyError = require("../Error.js");
 
 const authenticateWithGoogle = async (req, res, next) => {
+  console.log("inside authenticate with google");
   try {
     const { user } = req;
+    console.log("user", user);
 
     if (!user || !user.emails?.[0]?.value) {
       return res.status(401).json({
@@ -16,6 +18,7 @@ const authenticateWithGoogle = async (req, res, next) => {
     const email = user.emails[0].value;
 
     const unverifiedUser = await UserModel.findOne({ email });
+    console.log("un", unverifiedUser);
     if (unverifiedUser) {
       return res.status(400).json({
         success: false,
@@ -24,13 +27,13 @@ const authenticateWithGoogle = async (req, res, next) => {
     }
 
     const verifiedUser = await VerifiedUserModel.findOne({ email });
-
-    if (verifiedUser && verifiedUser.authProvider === "local") {
+    console.log("user is verified", verifiedUser);
+    if (verifiedUser && verifiedUser?.authProvider === "local") {
       return res.status(400).json({
         success: false,
         message: "Please login with email  and password!",
       });
-    } else if (verifiedUser && verifiedUser.authProvider === "google") {
+    } else if (verifiedUser && verifiedUser?.authProvider === "google") {
       req.verifiedUser = verifiedUser;
       console.log("user is veirified with google provider");
       return next();

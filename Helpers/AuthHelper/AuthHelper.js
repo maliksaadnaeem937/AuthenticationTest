@@ -5,7 +5,7 @@ const transporter=require("./transporter.js");
 const crypto=require("crypto");
 const nodemailer = require("nodemailer");
 
-const MyError = require("../MiddleWares/Error.js");
+const MyError = require("@middlewares/Error.js");
 const generateOTP = () => {
   return crypto.randomInt(100000, 999999).toString(); 
 };

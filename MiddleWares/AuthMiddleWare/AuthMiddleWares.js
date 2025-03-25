@@ -1,6 +1,6 @@
-const isAuthenticated = require("../MiddleWares/authentication.js");
-const verifyOtp = require("../MiddleWares/verifyotp.js");
-const postLogin = require("../MiddleWares/postLogin.js");
+const isAuthenticated = require("./authentication.js");
+const verifyOtp = require("./verifyotp.js");
+const postLogin = require("./postLogin.js");
 
 class AuthMiddleware {
   static isAuthenticated = isAuthenticated;

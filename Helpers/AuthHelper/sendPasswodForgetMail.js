@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const MyError = require("../MiddleWares/Error.js");
+const MyError = require("@middlewares/Error.js");
 const jwt = require("jsonwebtoken");
 const transporter = require("./transporter.js");
 

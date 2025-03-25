@@ -1,6 +1,6 @@
-const { UserModel } = require("../Models/user.js");
-const MyError = require("../MiddleWares/Error.js");
-const { sendOTPMail } = require("../Helpers/AuthHelper.js");
+const { UserModel } = require("@models/user.js");
+const MyError = require("@middlewares/Error.js");
+const { sendOTPMail } = require("@helpers/AuthHelper/AuthHelper.js");
 const sendOTP = async (req, res) => {
   try {
     const { email } = req.body;

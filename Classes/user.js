@@ -1,9 +1,9 @@
 const { v4: uuidv4 } = require("uuid");
 const validate = require("validate.js");
-const validationRules = require("../Helpers/constraints.js");
+const validationRules = require("@helpers/AuthHelper/constraints.js");
 const bcrypt = require("bcryptjs");
-const { UserModel, VerifiedUserModel } = require("../Models/user.js");
-const MyError = require("../MiddleWares/Error.js");
+const { UserModel, VerifiedUserModel } = require("@models/user.js");
+const MyError = require("@middlewares/Error.js");
 
 class User {
   constructor() {

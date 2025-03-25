@@ -1,3 +1,4 @@
+require("module-alias/register");
 const express = require("express");
 require("dotenv").config();
 require("./DBConnection/connection.js");
@@ -5,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const googleAuthRouter = require("./Routes/googleAuth.js");
 const authRouter = require("./Routes/auth.js");
 const passport = require("passport");
-const passportSetup = require("./Helpers/passport.js");
+const passportSetup = require("./Helpers/AuthHelper/passport.js");
 const cors = require("cors");
 const app = express();
 app.use(

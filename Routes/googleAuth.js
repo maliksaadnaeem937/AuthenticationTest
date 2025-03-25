@@ -1,14 +1,14 @@
 const express = require("express");
 const passport = require("passport");
-const AuthController = require("../Controllers/AuthController.js");
-const GoogleAuthentication = require("../MiddleWares/registerWithPassport.js");
+const AuthController = require("@controllers/AuthController/AuthController.js");
+const GoogleAuthentication = require("@middlewares/AuthMiddleWare/registerWithPassport.js");
 
 const router = express.Router();
 
-router.use((req,res,next)=>{
+router.use((req, res, next) => {
   console.log("inside google auth");
   next();
-})
+});
 
 router.get(
   "/google",

@@ -1,4 +1,4 @@
-const { VerifiedUserModel } = require("../Models/user.js");
+const { VerifiedUserModel } = require("@models/user.js");
 
 const createSaveVerifiedUser = async (user) => {
   const newUser = new VerifiedUserModel({

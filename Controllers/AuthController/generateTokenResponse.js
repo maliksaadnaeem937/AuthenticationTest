@@ -1,8 +1,8 @@
-const MyError = require("../MiddleWares/Error.js");
+const MyError = require("@middlewares/Error.js");
 const {
   generateAccessToken,
   generateRefreshToken,
-} = require("../Helpers/AuthHelper.js");
+} = require("@helpers/AuthHelper/AuthHelper.js");
 
 const generateTokenResponse = async (req, res, next) => {
   try {

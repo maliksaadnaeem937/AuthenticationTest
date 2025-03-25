@@ -1,7 +1,7 @@
-const MyError = require("../MiddleWares/Error.js");
+const MyError = require("@middlewares/Error.js");
 const jwt = require("jsonwebtoken");
-const { VerifiedUserModel } = require("../Models/user.js");
-const { sendForgetPasswordMail } = require("../Helpers/AuthHelper.js");
+const { VerifiedUserModel } = require("@models/user.js");
+const { sendForgetPasswordMail } = require("@helpers/AuthHelper/AuthHelper.js");
 
 const resendForgetPasswordEmail = async (req, res) => {
   try {

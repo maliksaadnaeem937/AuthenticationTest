@@ -4,9 +4,9 @@ const {
   isAuthenticated,
   verifyOtp,
   loginUser,
-} = require("../MiddleWares/AuthMiddleWares.js");
+} = require("@middlewares/AuthMiddleWare/AuthMiddleWares.js");
 
-const AuthController = require("../Controllers/AuthController.js");
+const AuthController = require("@controllers/AuthController/AuthController.js");
 
 const router = express.Router();
 
